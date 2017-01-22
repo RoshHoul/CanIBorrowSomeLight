@@ -13,14 +13,16 @@ public class PlayerMovement : MonoBehaviour {
     public GameObject coin;
     public float jumpStrength;
     private bool isIdle = true;
-    public static Vector3 lastPosition;
-
+	public static Vector3 lastPosition;
+	private AudioSource Source;
+	public AudioClip Coin;
 
     // Use this for initialization
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        
+		Source = GetComponent<AudioSource> ();
+		lastPosition = new Vector3(-71f,-6.9f,0f);
     }
 
     // Update is called once per frame
@@ -59,10 +61,12 @@ public class PlayerMovement : MonoBehaviour {
         if (Input.GetKey(KeyCode.Mouse0) && holdCoin && isIdle == false)
         {
             CharacterAnims.SetInteger("States", 2);
+			Source.PlayOneShot(Coin,1f);
         }
         else if (Input.GetKey(KeyCode.Mouse0) && holdCoin && isIdle == true)
         {
             CharacterAnims.SetInteger("States", 4);
+			Source.PlayOneShot (Coin, 1f);
         }
 
 

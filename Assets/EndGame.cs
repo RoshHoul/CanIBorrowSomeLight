@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EndGame : MonoBehaviour {
+	public GameObject WinScreen;
     
 	// Use this for initialization
 	void Start () {
@@ -16,7 +17,13 @@ public class EndGame : MonoBehaviour {
 
     void OnTriggerEnter2D (Collider2D other)
     {
-        if (other.gameObject.tag == "Player")
-            Debug.Log("EBALO SI E MAIKATA");
+		if (other.gameObject.tag == "Player") 
+		{
+			Debug.Log("EBALO SI E MAIKATA");
+			WinScreen.SetActive (true);
+			Time.timeScale = 0f;
+		}
+           
+			
     }
 }
