@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour {
         }
         else
         {
-            CharacterAnims.SetInteger("States", 0);
+			CharacterAnims.SetInteger("States", 0);
             isIdle = true;
         }
         if (Input.GetKey(KeyCode.Mouse0) && holdCoin && isIdle == false)
@@ -101,6 +101,8 @@ public class PlayerMovement : MonoBehaviour {
 		//	gameObject.transform.Translate (-12, 14, 0);
             rb.AddForce(new Vector2(0, 20), ForceMode2D.Impulse);
         }
+        if (other.gameObject.tag == "EndGame")
+            Debug.Log("Tralalala");
 
 
     }
